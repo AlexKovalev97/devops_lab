@@ -38,14 +38,17 @@ memoryUse = pid.memory_full_info().rss >> 10
 l = list()
 if config.output == "txt":
     for i in range(1, 100):
-        st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+        tt = time.time()
+        st = datetime.datetime.fromtimestamp(tt).strftime('%Y-%m-%d %H:%M:%S')
         pid = psutil.Process(os.getpid())
         memoryUse = pid.memory_full_info().rss >> 10
-        print('\nSNAPSHOT', i, st, '\nCPU (%) per each core : ', log("cpu"),
+        print('\nSNAPSHOT', i, st, '\nCPU (%) per each core: ', log("cpu"),
               '\nVirtual Memory available/used/free : ', log("vima"), 'Gb', '/',
-              log("vimu"), 'Gb', '/ ', log("vimf"), 'Gb',
+              log("vimu"), 'Gb', '/ ', log("vimf"),
+              'Gb',
               '\nMemory used/free : ', log("duu"), ' Gb', '/', log("duf"), 'Gb',
-              '\nMemory used by script : ', memoryUse, 'kB',
+              '\nMemory used by script : ',
+              memoryUse, 'kB',
               '\nIO read count/write count : ', log("dcr"), '/ ', log("dcw"),
               '\nNetwork packets sent/packets received : ', log("ncps"), '/ ', log("ncpr"),
               file=open("log.txt", "a"))
