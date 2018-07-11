@@ -43,19 +43,23 @@ if config.output == "txt":
         pid = psutil.Process(os.getpid())
         memoryUse = pid.memory_full_info().rss >> 10
         print('\nSNAPSHOT', i, st, '\nCPU (%) per each core: ', log("cpu"),
-              '\nVirtual Memory available/used/free : ', log("vima"), 'Gb', '/',
+              '\nVirtual Memory available/used/free : ',
+              log("vima"), 'Gb', '/',
               log("vimu"), 'Gb', '/ ', log("vimf"),
               'Gb',
-              '\nMemory used/free : ', log("duu"), ' Gb', '/', log("duf"), 'Gb',
+              '\nMemory used/free : ', log("duu"),
+              ' Gb', '/', log("duf"), 'Gb',
               '\nMemory used by script : ',
               memoryUse, 'kB',
               '\nIO read count/write count : ', log("dcr"), '/ ', log("dcw"),
-              '\nNetwork packets sent/packets received : ', log("ncps"), '/ ', log("ncpr"),
+              '\nNetwork packets sent/packets received : ',
+              log("ncps"), '/ ', log("ncpr"),
               file=open("log.txt", "a"))
         time.sleep(config.interval * 60)
 elif config.output == "json":
     for i in range(1, 8):
-        st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+        tt = time.time()
+        st = datetime.datetime.fromtimestamp(tt).strftime('%Y-%m-%d %H:%M:%S')
         pid = psutil.Process(os.getpid())
         memoryUse = pid.memory_full_info().rss >> 10
         json_dict = {
