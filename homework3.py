@@ -3,8 +3,8 @@ import config
 import datetime
 import json
 import os
-import time
 import psutil
+import time
 print(config.interval)
 print(config.output)
 
@@ -49,7 +49,7 @@ if config.output == "txt":
               '\nIO read count/write count : ', log("dcr"), '/ ', log("dcw"),
               '\nNetwork packets sent/packets received : ', log("ncps"), '/ ', log("ncpr"),
               file=open("log.txt", "a"))
-        time.sleep(config.interval*60)
+        time.sleep(config.interval * 60)
 elif config.output == "json":
     for i in range(1, 8):
         st = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
@@ -66,7 +66,7 @@ elif config.output == "json":
             'Network': log("ncpr"),
         }
         l.append(json_dict)
-        time.sleep(config.interval*60)
+        time.sleep(config.interval * 60)
 with open('json_log.json', 'a') as js:
     json.dump(l, js)
 print("good")
