@@ -1,2 +1,2 @@
-output = "json"
+output = "txt"
 interval = 5
