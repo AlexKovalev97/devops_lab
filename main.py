@@ -23,7 +23,7 @@ class LogMaker:
                   '\nNetwork packets sent/packets received : ',
                   logger.log("ncps"), '/ ', logger.log("ncpr"),
                   file=open("log.txt", "a"))
-            time.sleep(config.interval)
+            time.sleep(config.interval * 60)
 
     @staticmethod
     def makerjson():
@@ -39,7 +39,7 @@ class LogMaker:
                 'Network': logger.log("ncpr"),
             }
             logger.json_list.append(json_dict)
-            time.sleep(config.interval)
+            time.sleep(config.interval * 60)
             with open('json_log.json', 'a') as js:
                 json.dump(logger.json_list, js)
             print("good")
