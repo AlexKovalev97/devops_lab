@@ -4,7 +4,7 @@ import logger
 import time
 
 
-class LogMaker:
+class LogMaker(object):
     @staticmethod
     def makertxt():
         for i in range(1, 100):
