@@ -1,5 +1,5 @@
-import re
 import __future__
+import re
 expression = str(input('Input your expression: '))
 pattern = r'-?(\d*)(\+|\-|\*|\/)*(\d*)\=-?(\d*)'
 m = re.match(pattern, expression)
@@ -12,7 +12,7 @@ if m is not None:
             and length < 100:
         eqPos = expression.find('=')
         beforeEq = expression[:eqPos]
-        afterEq = expression[eqPos+1:]
+        afterEq = expression[eqPos + 1:]
         try:
             result = eval(compile(beforeEq, '<string>', 'eval',
                                   __future__.division.compiler_flag))
