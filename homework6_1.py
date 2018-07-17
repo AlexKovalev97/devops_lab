@@ -17,7 +17,8 @@ pip_l = str(subprocess.Popen("pip list",
             communicate()[0].decode('utf-8').strip())
 # site-pack loc
 l_json = []
-json_dict = {
+l_yaml = []
+dict_out = {
     'Version': python_v,
     'Environment': v_env,
     'Executable': ex,
@@ -25,11 +26,10 @@ json_dict = {
     'Python path': path,
     'Packages': pip_l.split('\n'),
 }
-l_json.append(json_dict)
+l_json.append(dict_out)
 with open('output.json', 'w') as js:
     json.dump(l_json, js, indent=2)
 
-l_yaml = []
-l_yaml.append(json_dict)
+l_yaml.append(dict_out)
 with open('output.yaml', 'w') as yl:
     yaml.dump(l_yaml, yl, default_flow_style=False)
