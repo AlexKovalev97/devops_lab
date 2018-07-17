@@ -23,7 +23,8 @@ class Test(unittest.TestCase):
                                               '0123456789001234567890'
                                               '0123456789001234567890'
                                               '0123456789001234567890'
-                                              '0123456789001234567890'), 'ERROR')
+                                              '0123456789001234567890'),
+                             'ERROR')
 
     def test_checker_5(self):
         self.assertEqual(for_test.checker('1.3+5=7'), 'ERROR')
