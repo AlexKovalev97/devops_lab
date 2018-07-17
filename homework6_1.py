@@ -1,6 +1,6 @@
+import json
 import os
 import subprocess
-import json
 import yaml
 python_v = str(subprocess.Popen("python -V",
                                 shell=True, stdout=subprocess.PIPE).
@@ -18,12 +18,12 @@ pip_l = str(subprocess.Popen("pip list",
 # site-pack loc
 l_json = []
 json_dict = {
-            'Version': python_v,
-            'Environment': v_env,
-            'Executable': ex,
-            'PIP version': pip_v,
-            'Python path': path,
-            'Packages': pip_l.split('\n'),
+    'Version': python_v,
+    'Environment': v_env,
+    'Executable': ex,
+    'PIP version': pip_v,
+    'Python path': path,
+    'Packages': pip_l.split('\n'),
 }
 l_json.append(json_dict)
 with open('output.json', 'w') as js:
@@ -31,12 +31,12 @@ with open('output.json', 'w') as js:
 
 l_yaml = []
 yaml_dict = {
-            'Version': python_v,
-            'Environment': v_env,
-            'Executable': ex,
-            'PIP version': pip_v,
-            'Python path': path,
-            'Packages': pip_l.split('\n'),
+    'Version': python_v,
+    'Environment': v_env,
+    'Executable': ex,
+    'PIP version': pip_v,
+    'Python path': path,
+    'Packages': pip_l.split('\n'),
 }
 l_yaml.append(yaml_dict)
 with open('output.yaml', 'w') as yl:
