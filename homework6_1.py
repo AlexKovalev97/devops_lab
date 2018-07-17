@@ -30,14 +30,6 @@ with open('output.json', 'w') as js:
     json.dump(l_json, js, indent=2)
 
 l_yaml = []
-yaml_dict = {
-    'Version': python_v,
-    'Environment': v_env,
-    'Executable': ex,
-    'PIP version': pip_v,
-    'Python path': path,
-    'Packages': pip_l.split('\n'),
-}
-l_yaml.append(yaml_dict)
+l_yaml.append(json_dict)
 with open('output.yaml', 'w') as yl:
     yaml.dump(l_yaml, yl, default_flow_style=False)
